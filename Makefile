@@ -4,7 +4,7 @@ NAME = pipex
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 INCLUDES = includes/
 
@@ -16,7 +16,7 @@ PX_SRC = src/
 
 OB_PATH = obj/
 
-PX_FILES = pipex
+PX_FILES = pipex utils
 
 FILES_OBJ = $(addprefix $(OB_PATH), $(addsuffix .o, $(PX_FILES)))
 
