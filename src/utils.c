@@ -6,11 +6,21 @@
 /*   By: rigarrid <rigarrid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 16:57:34 by rigarrid          #+#    #+#             */
-/*   Updated: 2023/12/14 17:18:26 by rigarrid         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:53:47 by rigarrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+
+void	freematrix(char **str)
+{
+	int		c;
+
+	c = 0;
+	while (str[c] != NULL)
+		free(str[c++]);
+	free(str);
+}
 
 static void	ft_matrixerror(char **matrix, int c)
 {
@@ -41,6 +51,5 @@ t_references	ft_cmdmanager(char **argv, char **envp)
 		ft_printf("Command not found: %s\n", data.cmd1[0]);
 	if (data.path2 == 0)
 		ft_printf("Command not found: %s\n", data.cmd2[0]);
-	system("leaks -q pipex");
 	return (data);
 }
